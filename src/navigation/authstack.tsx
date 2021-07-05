@@ -7,7 +7,7 @@ export const AuthStack : React.FC = () => {
     const { Navigator, Screen } = createStackNavigator();
 
     return(
-        <Navigator>
+        <Navigator screenOptions={{headerShown: false}}>
             <Screen name='onboarding' component={Board} />
         </Navigator>
     );
