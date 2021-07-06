@@ -5,19 +5,26 @@ export const slides = [
         bgColor: "#FFF5D4",
         buttonColor: "#EED47F",
         image: "🥗",
+        color: '#000000',
+        buttonLabelColor: '#2B2B2B'
     },
     {
         title: "Keep Your Blood Sugar Stable.",
         description: "We use machine learning and AI to help you \n keep your blood sugar stable.",
-        bgColor: "#FAFFD4",
-        buttonColor: "#E1EB92",
+        bgColor: "#000000",
+        buttonColor: "#2B2B2B",
         image: "🩸",
+        color: '#ffffff',
+        buttonLabelColor: '#ffffff'
+        
     },
     {
         title: "Prevent Diabetes Side Effects.",
         description: "App help you build awareness arround type \n 1 diabetes side effects, and how \n to prevent them.  ",
-        bgColor: "#DDFFD4",
-        buttonColor: "#B6E5AA",
+        bgColor: "#FFECE8",
+        buttonColor: "#FFD6CD",
         image: "🩺",
+        color: '#000000',
+        buttonLabelColor: '#2B2B2B'
     }
 ]

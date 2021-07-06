@@ -1,31 +1,39 @@
 import React from 'react';
 import { View, Text, Dimensions, StyleSheet } from 'react-native';
-import { SlideButton } from '.'
-
+import { Button } from '../../components';
 
 interface SlideProps {
     title: string;
     description: string;
     buttonColor: string;
     image: string;
+    color: string;
+    buttonLabelColor: string;
+    is_last?: boolean;
 }
 
 const {width} = Dimensions.get('window');
-export const Slide : React.FC<SlideProps> = ({title, description, buttonColor, image}) => {
+export const Slide : React.FC<SlideProps> = ({title, description, buttonColor, image, color, buttonLabelColor, is_last}, props) => {
+
+    const handleButtonPressing = () => {
+        if(is_last){
+            props.navigation.navigate('register');
+        }
+    }
 
     return(
         <View style={styles.container}>
             <View style={styles.body}>
-                <Text style={styles.title}>{title}</Text>
+                <Text style={[styles.title, {color}]}>{title}</Text>
                 <View style={styles.descriptionContainer}>
-                    <Text style={styles.description}>{description}</Text>
+                    <Text style={[styles.description, {color}]}>{description}</Text>
                 </View>
                 <View style={styles.imageContainer}>
                     <Text style={styles.image}>{image}</Text>
                 </View>
             </View>
             <View style={styles.footer}>
-                <SlideButton label="Next" color={buttonColor} />
+                <Button onpress={() => handleButtonPressing()} label={is_last ? "Join Us" : "Next."} buttonLabelColor={buttonLabelColor} color={buttonColor} />
             </View>
         </View>
     )

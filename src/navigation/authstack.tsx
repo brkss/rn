@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import {Board} from '../screens';
+import {Board, Register} from '../screens';
 
 export const AuthStack : React.FC = () => {
 
@@ -9,6 +9,8 @@ export const AuthStack : React.FC = () => {
     return(
         <Navigator screenOptions={{headerShown: false}}>
             <Screen name='onboarding' component={Board} />
+            <Screen name='register' component={Register} />
+           
         </Navigator>
     );
 }
