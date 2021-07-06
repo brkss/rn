@@ -4,27 +4,26 @@ import { Input, Button } from '../../components';
 
 const {height} = Dimensions.get('window');
 
-export const Register : React.FC = (props: any) => {
+export const Login : React.FC = (props: any) => {
 
     return(
         <View style={styles.container}>
             <View style={styles.body}>
                 <View>
-                    <Text style={styles.title}>Create Account</Text>
-                    <Text style={styles.subtitle}>you’ll love it here specially if you have{'\n'}type 1 diabetes, made by diabetics {'\n'}to diabetics. </Text>
+                    <Text style={styles.title}>Login Back To Your Account ?</Text>
+                    <Text style={styles.subtitle}>You’ve been missed !</Text>
                 </View>
 
-                <Input placehodler='Name' />
+               
                 <Input placehodler='Email' />
                 <Input placehodler='Password' secureTextEntry={true} />
-                <Input placehodler='Repeat Password' secureTextEntry={true} />
-            
-                <Text onPress={() => props.navigation.push('login')} style={styles.LoginText}>Already have an account ? Login Back</Text>
-
+                
+                <Text onPress={() => props.navigation.goBack()} style={styles.createAccountText}>You dont have an account ? Create One</Text>
+                
             </View>
             
             <View style={styles.footer}>
-                <Button onpress={() => {}} label="Create Account" color="#3F4549" buttonLabelColor="#ffffff" />
+                <Button onpress={() => {}} label="Login" color="#3F4549" buttonLabelColor="#ffffff" />
             </View>
             
         </View>
@@ -53,7 +52,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 17
     },
-    LoginText: {
+    createAccountText: {
         textAlign: 'left',
         marginTop: 15,
     },

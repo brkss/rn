@@ -1,2 +1,2 @@
 export { Board } from "./OnBoarding";
-export { Register } from './Auth';
+export { Register, Login } from './Auth';

@@ -9,17 +9,15 @@ interface SlideProps {
     image: string;
     color: string;
     buttonLabelColor: string;
-    is_last?: boolean;
+    onButtonClick: () => void;
+    is_last: boolean;
 }
 
 const {width} = Dimensions.get('window');
-export const Slide : React.FC<SlideProps> = ({title, description, buttonColor, image, color, buttonLabelColor, is_last}, props) => {
+export const Slide : React.FC<SlideProps> = (props) => {
 
-    const handleButtonPressing = () => {
-        if(is_last){
-            props.navigation.navigate('register');
-        }
-    }
+    const {title, description, buttonColor, image, color, buttonLabelColor, onButtonClick, is_last} = props;
+    
 
     return(
         <View style={styles.container}>
@@ -33,7 +31,7 @@ export const Slide : React.FC<SlideProps> = ({title, description, buttonColor, i
                 </View>
             </View>
             <View style={styles.footer}>
-                <Button onpress={() => handleButtonPressing()} label={is_last ? "Join Us" : "Next."} buttonLabelColor={buttonLabelColor} color={buttonColor} />
+                <Button onpress={() => onButtonClick()} label={is_last ? "Join Us" : "Next."} buttonLabelColor={buttonLabelColor} color={buttonColor} />
             </View>
         </View>
     )

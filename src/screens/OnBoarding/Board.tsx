@@ -4,9 +4,18 @@ import { Slide, slides } from '.';
 import { useValue, onScrollEvent, interpolateColor } from 'react-native-redash/lib/module/v1';
 import Animated from 'react-native-reanimated'
 
+
 const {width, height} = Dimensions.get('window');
-export const Board : React.FC = () => {
+export const Board : React.FC = (props: any) => {
     
+    const handleSlideButton = (is_last: boolean) => {
+        if(is_last){
+            props.navigation.navigate('register');
+        }else {
+            // next slide 
+        }
+    }
+
     const x = useValue(0);
     const onScroll = onScrollEvent({x});
     const backgroundColor = interpolateColor(x, {
@@ -19,7 +28,7 @@ export const Board : React.FC = () => {
             <Animated.ScrollView horizontal showsHorizontalScrollIndicator={false} bounces={true} snapToInterval={width} decelerationRate='fast' scrollEventThrottle={1} {...{onScroll}}>
                 {
                     slides.map((slide, index) => (
-                        <Slide key={index} is_last={index === slides.length - 1 } color={slide.color} buttonLabelColor={slide.buttonLabelColor} title={slide.title} buttonColor={slide.buttonColor} description={slide.description} image={slide.image} />
+                        <Slide key={index} is_last={index === slides.length -1} onButtonClick={() => handleSlideButton(index === slides.length -1)} color={slide.color} buttonLabelColor={slide.buttonLabelColor} title={slide.title} buttonColor={slide.buttonColor} description={slide.description} image={slide.image} />
                     ))
                 }
             </Animated.ScrollView>
