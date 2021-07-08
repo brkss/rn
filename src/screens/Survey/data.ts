@@ -18,6 +18,6 @@ export const survey = [
             "ALWAYS HIGH"
         ],
         single_choise: true
-    },
+    }
 
 ]

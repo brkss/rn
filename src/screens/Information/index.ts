@@ -1,0 +1,1 @@
+export { BodyInformation } from './BodyInformation'
